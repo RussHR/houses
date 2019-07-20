@@ -1,5 +1,5 @@
-import HousesApp from "./HousesApp";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HousesApp from './HousesApp';
 
-const arr = [1, 2, 3];
-const iAmJavascriptES6 = () => console.log(...arr);
-window.iAmJavascriptES6 = iAmJavascriptES6;
+ReactDOM.render(<HousesApp />, document.getElementById('houses-app')); // eslint-disable-line react/jsx-filename-extension
