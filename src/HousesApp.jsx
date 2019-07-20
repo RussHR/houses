@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { formatJsonForState } from './helpers/houses';
 import './main.css';
 
 const HousesApp = () => {
 	const [hasError, setError] = useState(false);
-	const [houses, setHouses] = useState({});
+	const [vendors, setVendors] = useState({});
 
 	const fetchHouses = () => {
 		fetch('http://localhost:1337/houses')
 			.then(response => response.json())
-			.then(json => setHouses(json))
+			.then(json => setVendors(formatJsonForState(json)))
 			.catch(() => setError(true));
 	};
 
@@ -20,7 +21,7 @@ const HousesApp = () => {
 		<>
 			{hasError && <span>here is an error</span>}
 			<span>houses are here!</span>
-			<p>{JSON.stringify(houses)}</p>
+			<p>{JSON.stringify(vendors)}</p>
 		</>
 	);
 };
