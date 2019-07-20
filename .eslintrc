@@ -19,7 +19,8 @@
 	},
 	"rules": {
 		"indent": ["error", "tab"],
-		"no-tabs": 0
+		"no-tabs": 0,
+		"react/jsx-indent": [true, "tab"]
 	},
 	"settings": {
 		"react": {
