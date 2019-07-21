@@ -5,11 +5,24 @@ import PropTypes from 'prop-types';
  * Contains all the information shown for a house.
  * Rendered alongside other houses under the same vendor.
  */
-const HouseRow = ({ id, exteriorImage, name, price, size, handleHousePriceChange }) => {
+const HouseRow = ({
+	id,
+	exteriorImage,
+	name,
+	price,
+	size,
+	handleHousePriceChange,
+	cancelEditPrice
+}) => {
 	const [editingPrice, setEditingPrice] = useState(false);
 	
-	const onClickEditButton = () => {
+	const onClickEdit = () => {
 		setEditingPrice(true);
+	};
+
+	const onClickCancel = () => {
+		setEditingPrice(false);
+		cancelEditPrice(id);
 	};
 
 	const onChangePrice = ({ currentTarget: { value }}) => {
@@ -17,9 +30,12 @@ const HouseRow = ({ id, exteriorImage, name, price, size, handleHousePriceChange
 	};
 
 	const priceDisplay = editingPrice ? (
-		<input type="number" defaultValue={price} onChange={onChangePrice} />
+		<>
+			<input type="number" defaultValue={price} onChange={onChangePrice} />
+			<button onClick={onClickCancel}>Cancel</button>
+		</>
 	) : (
-		<>{`${price}€`} <button onClick={setEditingPrice}>Edit</button></>
+			<>{`${price}€`} <button onClick={onClickEdit}>Edit</button></>
 	);
 	return (
 		<tr data-qa="house-row">

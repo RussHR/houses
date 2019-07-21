@@ -10,6 +10,7 @@ import { sortHouses } from '../../helpers/houses';
  */
 const Vendor = ({
 	ascendingOrder,
+	cancelEditPrice,
 	displayName,
 	handleHousePriceChange,
 	logoThumb,
@@ -41,6 +42,7 @@ const Vendor = ({
 							name={name}
 							price={price}
 							size={size}
+							cancelEditPrice={cancelEditPrice}
 							handleHousePriceChange={handleHousePriceChange}
 						/>
 					))}

@@ -36,6 +36,11 @@ const HousesApp = () => {
 		newPricesToEdit[id] = price;
 		setPricesToEdit(newPricesToEdit);
 	};
+	const cancelEditPrice = (id) => {
+		const newPricesToEdit = { ...pricesToEdit };
+		delete newPricesToEdit[id];
+		setPricesToEdit(newPricesToEdit);
+	};
 
 	return (
 		<>
@@ -63,6 +68,7 @@ const HousesApp = () => {
 					sortMode={sortMode}
 					ascendingOrder={ascendingOrder}
 					handleHousePriceChange={handleHousePriceChange}
+					cancelEditPrice={cancelEditPrice}
 				/>
 			))}
 		</>
