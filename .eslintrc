@@ -21,7 +21,9 @@
 		"comma-dangle": ["error", "never"],
 		"indent": ["error", "tab"],
 		"no-tabs": 0,
-		"react/jsx-indent": [true, "tab"]
+		"object-curly-newline": [0, {}],
+		"react/jsx-indent": [true, "tab"],
+		"react/jsx-indent-props": [true, "tab"]
 	},
 	"settings": {
 		"react": {

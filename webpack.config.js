@@ -38,7 +38,7 @@ module.exports = {
 		}),
 		new StyleLintPlugin({
 			files: './src/**/*.css'
-		}),
+		})
 	],
 	resolve: {
 		extensions: ['.js', '.jsx'],
