@@ -29,15 +29,33 @@ const HouseRow = ({
 
 	const priceDisplay = (editedPrice) ? (
 		<>
-			<input type="number" defaultValue={price} onChange={onChangePrice} />
-			<button type="button" onClick={onClickCancel}>Cancel</button>
+			<input
+				type="number"
+				defaultValue={price}
+				onChange={onChangePrice}
+				data-qa="edit-price-input"
+			/>
+			<button
+				type="button"
+				onClick={onClickCancel}
+				data-qa="cancel-edit-price-button"
+			>
+				Cancel
+			</button>
 		</>
 	) : (
-			<>
-				{`${price}€`}
-				<button type="button" onClick={onClickEdit}>Edit</button>
-			</>
+		<>
+			{`${price}€`}
+			<button
+				type="button"
+				onClick={onClickEdit}
+				data-qa="edit-price-button"
+			>
+				Edit
+			</button>
+		</>
 	);
+
 	return (
 		<tr data-qa="house-row">
 			<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
