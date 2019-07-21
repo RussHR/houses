@@ -373,7 +373,6 @@ const exampleRes = {
 };
 /* eslint-enable */
 
-
 describe('helpers/houses', () => {
 	let formattedState;
 

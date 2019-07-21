@@ -1,3 +1,8 @@
+/**
+ * Formats respons from the /houses api endpoint for the app state.
+ * @param {object} json - successful response from the server
+ * @returns {object} state with keys pointing to vendor ids, and each has its own .houses
+ */
 // eslint-disable-next-line import/prefer-default-export
 export function formatJsonForState({ results }) {
 	const housesByVendor = {};
