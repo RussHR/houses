@@ -26,10 +26,10 @@ const HouseRow = ({
 	};
 
 	const onChangePrice = ({ currentTarget: { value }}) => {
-		handleHousePriceChange(id, value);
+		handleHousePriceChange(id, parseInt(value, 10));
 	};
 
-	const priceDisplay = editingPrice ? (
+	const priceDisplay = (editingPrice) ? (
 		<>
 			<input type="number" defaultValue={price} onChange={onChangePrice} />
 			<button onClick={onClickCancel}>Cancel</button>

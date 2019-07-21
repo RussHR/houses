@@ -44,7 +44,17 @@ const HousesApp = () => {
 		delete newPricesToEdit[houseId];
 		setPricesToEdit(newPricesToEdit);
 	};
+	const savePrices = () => {
+		const newLocalVendorData = { ...vendors };
+		const objForConsoleLogging = { update: [] };
+		Object.entries(pricesToEdit).forEach(([houseId, { vendorId, price }]) => {
+			newLocalVendorData[vendorId].houses[houseId].price = price;
+		});
 
+		setVendors(newLocalVendorData);
+	};
+
+	const noPricesToEdit = Object.keys(pricesToEdit).length === 0;
 	return (
 		<>
 			{hasError && <span>here is an error</span>}
@@ -61,6 +71,7 @@ const HousesApp = () => {
 				<option value="ascending">Ascending</option>
 				<option value="descending">Descending</option>
 			</select>
+			<button onClick={savePrices} disabled={noPricesToEdit}>Save</button>
 
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
