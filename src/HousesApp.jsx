@@ -9,6 +9,7 @@ const HousesApp = () => {
 	const [vendors, setVendors] = useState({});
 	const [sortMode, setSortMode] = useState('');
 	const [ascendingOrder, setAscendingOrder] = useState(true);
+	const [pricesToEdit, setPricesToEdit] = useState({});
 
 	/** house fetching functionality */
 	const fetchHouses = () => {
@@ -27,6 +28,11 @@ const HousesApp = () => {
 	};
 	const onChangeAscendingOrder = ({ currentTarget: { value } }) => {
 		setAscendingOrder(value === 'ascending');
+	};
+
+	/** price editing functionality */
+	const handleHousePriceChange = (id, price) => {
+		console.log(id, price);
 	};
 
 	return (
@@ -54,6 +60,7 @@ const HousesApp = () => {
 					houses={houses}
 					sortMode={sortMode}
 					ascendingOrder={ascendingOrder}
+					handleHousePriceChange={handleHousePriceChange}
 				/>
 			))}
 		</>

@@ -1,21 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 /**
  * Contains all the information shown for a house.
  * Rendered alongside other houses under the same vendor.
  */
-const HouseRow = ({ id, exteriorImage, name, price, size }) => (
-	<tr data-qa="house-row">
-		<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
-		<td>{name}</td>
-		<td>{`${price}€`}</td>
-		<td>
-			{`${size} sqm.`}
-		</td>
-		<td>{id}</td>
-	</tr>
-);
+const HouseRow = ({ id, exteriorImage, name, price, size, handleHousePriceChange }) => {
+	const [editingPrice, setEditingPrice] = useState(false);
+	
+	const onClickEditButton = () => {
+		setEditingPrice(true);
+	};
+
+	const onChangePrice = ({ currentTarget: { value }}) => {
+		handleHousePriceChange(id, value);
+	};
+
+	const priceDisplay = editingPrice ? (
+		<input type="number" defaultValue={price} onChange={onChangePrice} />
+	) : (
+		<>{`${price}€`} <button onClick={setEditingPrice}>Edit</button></>
+	);
+	return (
+		<tr data-qa="house-row">
+			<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
+			<td>{name}</td>
+			<td>{priceDisplay}</td>
+			<td>
+				{`${size} sqm.`}
+			</td>
+			<td>{id}</td>
+		</tr>
+	);
+};
 
 HouseRow.propTypes = {
 	/** internal id of the house */

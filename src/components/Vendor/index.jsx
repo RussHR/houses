@@ -8,7 +8,14 @@ import { sortHouses } from '../../helpers/houses';
  * Shows very basic info for a vendor.
  * Renders a table for all the houses they are selling.
  */
-const Vendor = ({ ascendingOrder, displayName, logoThumb, houses, sortMode }) => {
+const Vendor = ({
+	ascendingOrder,
+	displayName,
+	handleHousePriceChange,
+	logoThumb,
+	houses,
+	sortMode
+}) => {
 	const sortedHouses = sortHouses(houses, sortMode, ascendingOrder);
 
 	return (
@@ -34,6 +41,7 @@ const Vendor = ({ ascendingOrder, displayName, logoThumb, houses, sortMode }) =>
 							name={name}
 							price={price}
 							size={size}
+							handleHousePriceChange={handleHousePriceChange}
 						/>
 					))}
 				</tbody>
