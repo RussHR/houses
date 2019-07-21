@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import HouseRow from './HouseRow';
 
+/**
+ * Shows very basic info for a vendor.
+ * Renders a table for all the houses they are selling.
+ */
 const Vendor = ({ displayName, logoThumb, houses }) => (
 	<div>
 		{displayName}
@@ -34,8 +38,11 @@ const Vendor = ({ displayName, logoThumb, houses }) => (
 );
 
 Vendor.propTypes = {
+	/** name of the vendor */
 	displayName: PropTypes.string.isRequired,
+	/** img src for a logo of max dimensions 140x50 px */
 	logoThumb: PropTypes.string.isRequired,
+	/** houses belonging to the vendor; each key is the house's internal id */
 	houses: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
