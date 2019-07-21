@@ -8,8 +8,24 @@ import { sortHouses } from '../../helpers/houses';
  * Shows very basic info for a vendor.
  * Renders a table for all the houses they are selling.
  */
-const Vendor = ({ ascendingOrder, displayName, logoThumb, houses, sortMode }) => {
+const Vendor = ({
+	ascendingOrder,
+	cancelEditPrice,
+	displayName,
+	handleHousePriceChange,
+	id,
+	logoThumb,
+	houses,
+	sortMode
+}) => {
 	const sortedHouses = sortHouses(houses, sortMode, ascendingOrder);
+
+	const handleCancelPriceChangeAsVendor = (houseId) => {
+		cancelEditPrice(id, houseId);
+	};
+	const handlePriceChangeAsVendor = (houseId, price) => {
+		handleHousePriceChange(id, houseId, price);
+	};
 
 	return (
 		<div>
@@ -26,14 +42,17 @@ const Vendor = ({ ascendingOrder, displayName, logoThumb, houses, sortMode }) =>
 					</tr>
 				</thead>
 				<tbody>
-					{sortedHouses.map(([houseId, { exteriorImage, name, price, size }]) => (
+					{sortedHouses.map(([houseId, { editedPrice, exteriorImage, name, price, size }]) => (
 						<HouseRow
 							key={houseId}
 							id={houseId}
+							editedPrice={editedPrice}
 							exteriorImage={exteriorImage}
 							name={name}
 							price={price}
 							size={size}
+							cancelEditPrice={handleCancelPriceChangeAsVendor}
+							handleHousePriceChange={handlePriceChangeAsVendor}
 						/>
 					))}
 				</tbody>
@@ -45,8 +64,14 @@ const Vendor = ({ ascendingOrder, displayName, logoThumb, houses, sortMode }) =>
 Vendor.propTypes = {
 	/** whether to list the sorted houses in ascending order */
 	ascendingOrder: PropTypes.bool,
+	/** sets a house's editedPrice property to null, and we need to pass along vendorId as well */
+	cancelEditPrice: PropTypes.func.isRequired,
 	/** name of the vendor */
 	displayName: PropTypes.string.isRequired,
+	/** edits a house's editedPrice, but we also need to give vendorId */
+	handleHousePriceChange: PropTypes.func.isRequired,
+	/** vendor id, only needed for updating the house prices */
+	id: PropTypes.string.isRequired,
 	/** img src for a logo of max dimensions 140x50 px */
 	logoThumb: PropTypes.string.isRequired,
 	/** houses belonging to the vendor; each key is the house's internal id */

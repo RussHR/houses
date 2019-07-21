@@ -29,6 +29,40 @@ const HousesApp = () => {
 		setAscendingOrder(value === 'ascending');
 	};
 
+	/** price editing functionality */
+	const handleHousePriceChange = (vendorId, houseId, price) => {
+		const newLocalVendorData = { ...vendors };
+		newLocalVendorData[vendorId].houses[houseId].editedPrice = price;
+		setVendors(newLocalVendorData);
+	};
+	const cancelEditPrice = (vendorId, houseId) => {
+		const newLocalVendorData = { ...vendors };
+		newLocalVendorData[vendorId].houses[houseId].editedPrice = null;
+		setVendors(newLocalVendorData);
+	};
+	const savePrices = () => {
+		const newLocalVendorData = { ...vendors };
+		const objForConsoleLogging = { update: [] };
+
+		Object.keys(newLocalVendorData).forEach(vendorId => {
+			const vendor = newLocalVendorData[vendorId];
+			Object.keys(vendor.houses).forEach(houseId => {
+				const house = vendor.houses[houseId];
+				if (house.editedPrice) {
+					objForConsoleLogging.update.push({
+						id: houseId,
+						price: house.editedPrice
+					});
+					house.price = house.editedPrice;
+					house.editedPrice = null;
+				}
+			});
+		});
+
+		console.log(JSON.stringify(objForConsoleLogging)); // eslint-disable-line no-console
+		setVendors(newLocalVendorData);
+	};
+
 	return (
 		<>
 			{hasError && <span>here is an error</span>}
@@ -45,15 +79,19 @@ const HousesApp = () => {
 				<option value="ascending">Ascending</option>
 				<option value="descending">Descending</option>
 			</select>
+			<button type="button" onClick={savePrices}>Save</button>
 
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
 					key={vendorId}
+					id={vendorId}
 					displayName={displayName}
 					logoThumb={logoThumb}
 					houses={houses}
 					sortMode={sortMode}
 					ascendingOrder={ascendingOrder}
+					handleHousePriceChange={handleHousePriceChange}
+					cancelEditPrice={cancelEditPrice}
 				/>
 			))}
 		</>

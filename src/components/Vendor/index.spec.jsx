@@ -3,8 +3,9 @@ import React from 'react';
 
 import Vendor from './index';
 
+let vendorWrapper;
+
 describe('<Vendor />', () => {
-	let renderedVendor;
 	const houses = {
 		/* eslint-disable */
 		"1": {
@@ -23,20 +24,27 @@ describe('<Vendor />', () => {
 	};
 
 	beforeAll(() => {
-		renderedVendor = render(
-			<Vendor displayName="I am vendor" logoThumb="example.com" houses={houses} />
+		vendorWrapper = render(
+			<Vendor
+				id="1"
+				displayName="I am vendor"
+				logoThumb="example.com"
+				houses={houses}
+				cancelEditPrice={jest.fn(() => null)}
+				handleHousePriceChange={jest.fn(() => null)}
+			/>
 		);
 	});
 
 	test('shows the display name of a vendor', () => {
-		expect(renderedVendor.html()).toMatch('I am vendor');
+		expect(vendorWrapper.html()).toMatch('I am vendor');
 	});
 
 	test('shows the logoThumb of a vendor', () => {
-		expect(renderedVendor.html()).toMatch('src="example.com"');
+		expect(vendorWrapper.html()).toMatch('src="example.com"');
 	});
 
 	test('renders a table for each house', () => {
-		expect(renderedVendor.find('[data-qa="house-row"]')).toHaveLength(2);
+		expect(vendorWrapper.find('[data-qa="house-row"]')).toHaveLength(2);
 	});
 });
