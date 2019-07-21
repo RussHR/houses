@@ -32,7 +32,9 @@ const HousesApp = () => {
 
 	/** price editing functionality */
 	const handleHousePriceChange = (id, price) => {
-		console.log(id, price);
+		const newPricesToEdit = { ...pricesToEdit };
+		newPricesToEdit[id] = price;
+		setPricesToEdit(newPricesToEdit);
 	};
 
 	return (
