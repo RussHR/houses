@@ -13,7 +13,7 @@ export function formatJsonForState({ results }) {
 	}) => {
 		if (!housesByVendor[vendorId]) {
 			housesByVendor[vendorId] = {
-				display_name,
+				displayName: display_name,
 				logoThumb,
 				houses: {}
 			};
