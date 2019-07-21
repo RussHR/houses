@@ -43,17 +43,23 @@ const HousesApp = () => {
 	const savePrices = () => {
 		const newLocalVendorData = { ...vendors };
 		const objForConsoleLogging = { update: [] };
+
 		Object.keys(newLocalVendorData).forEach(vendorId => {
 			const vendor = newLocalVendorData[vendorId];
 			Object.keys(vendor.houses).forEach(houseId => {
 				const house = vendor.houses[houseId];
 				if (house.editedPrice) {
+					objForConsoleLogging.update.push({
+						id: houseId,
+						price: house.editedPrice
+					});
 					house.price = house.editedPrice;
 					house.editedPrice = null;
 				}
 			});
 		});
 
+		console.log(JSON.stringify(objForConsoleLogging)); // eslint-disable-line no-console
 		setVendors(newLocalVendorData);
 	};
 
@@ -73,7 +79,7 @@ const HousesApp = () => {
 				<option value="ascending">Ascending</option>
 				<option value="descending">Descending</option>
 			</select>
-			<button onClick={savePrices}>Save</button>
+			<button type="button" onClick={savePrices}>Save</button>
 
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor

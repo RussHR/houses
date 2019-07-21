@@ -25,7 +25,7 @@ const Vendor = ({
 	};
 	const handlePriceChangeAsVendor = (houseId, price) => {
 		handleHousePriceChange(id, houseId, price);
-	}
+	};
 
 	return (
 		<div>
@@ -64,8 +64,14 @@ const Vendor = ({
 Vendor.propTypes = {
 	/** whether to list the sorted houses in ascending order */
 	ascendingOrder: PropTypes.bool,
+	/** sets a house's editedPrice property to null, and we need to pass along vendorId as well */
+	cancelEditPrice: PropTypes.func.isRequired,
 	/** name of the vendor */
 	displayName: PropTypes.string.isRequired,
+	/** edits a house's editedPrice, but we also need to give vendorId */
+	handleHousePriceChange: PropTypes.func.isRequired,
+	/** vendor id, only needed for updating the house prices */
+	id: PropTypes.string.isRequired,
 	/** img src for a logo of max dimensions 140x50 px */
 	logoThumb: PropTypes.string.isRequired,
 	/** houses belonging to the vendor; each key is the house's internal id */

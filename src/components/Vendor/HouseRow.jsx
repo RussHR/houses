@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -14,7 +14,7 @@ const HouseRow = ({
 	handleHousePriceChange,
 	cancelEditPrice,
 	editedPrice
-}) => {	
+}) => {
 	const onClickEdit = () => {
 		handleHousePriceChange(id, price);
 	};
@@ -23,17 +23,20 @@ const HouseRow = ({
 		cancelEditPrice(id);
 	};
 
-	const onChangePrice = ({ currentTarget: { value }}) => {
+	const onChangePrice = ({ currentTarget: { value } }) => {
 		handleHousePriceChange(id, parseInt(value, 10));
 	};
 
 	const priceDisplay = (editedPrice) ? (
 		<>
 			<input type="number" defaultValue={price} onChange={onChangePrice} />
-			<button onClick={onClickCancel}>Cancel</button>
+			<button type="button" onClick={onClickCancel}>Cancel</button>
 		</>
 	) : (
-			<>{`${price}€`} <button onClick={onClickEdit}>Edit</button></>
+			<>
+				{`${price}€`}
+				<button type="button" onClick={onClickEdit}>Edit</button>
+			</>
 	);
 	return (
 		<tr data-qa="house-row">
@@ -49,6 +52,12 @@ const HouseRow = ({
 };
 
 HouseRow.propTypes = {
+	/** turns the <input /> for the price "off" by setting the house's editedPrice to null */
+	cancelEditPrice: PropTypes.func.isRequired,
+	/** changes the price field to <input /> editing the house's editedPrice property */
+	handleHousePriceChange: PropTypes.func.isRequired,
+	/** defaults to null, otherwise matches the number in the price <input /> when editing */
+	editedPrice: PropTypes.number,
 	/** internal id of the house */
 	id: PropTypes.string.isRequired,
 	/** img src for the first 320x240 px image of the house */
@@ -59,6 +68,10 @@ HouseRow.propTypes = {
 	price: PropTypes.number.isRequired,
 	/** units are square meters */
 	size: PropTypes.number.isRequired
+};
+
+HouseRow.defaultProps = {
+	editedPrice: null
 };
 
 export default HouseRow;

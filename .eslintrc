@@ -18,6 +18,7 @@
 		"jest": true
 	},
 	"rules": {
+		"arrow-parens": [0, "as-needed"],
 		"comma-dangle": ["error", "never"],
 		"indent": ["error", "tab"],
 		"jsx-a11y/label-has-associated-control": [0, {}], // failing due to bug

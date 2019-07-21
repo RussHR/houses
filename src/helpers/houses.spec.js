@@ -426,6 +426,7 @@ describe('helpers/houses', () => {
 			expect(house).toHaveProperty('name');
 			expect(house).toHaveProperty('price');
 			expect(house).toHaveProperty('size');
+			expect(house).toHaveProperty('editedPrice');
 		});
 
 		test('adds multiple houses to the same vendor', () => {
