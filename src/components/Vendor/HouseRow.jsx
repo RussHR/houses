@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HouseRow = ({ id, exteriorImages, name, price, size }) => (
+const HouseRow = ({ id, exteriorImage, name, price, size }) => (
 	<tr>
-		<td><img src={exteriorImages[0]['fill-320x240']} alt={`Preview for house ${name}.`} /></td>
+		<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
 		<td>{name}</td>
 		<td>{`${price}€`}</td>
 		<td>
-			{`${size}m`}
-			<sup>2</sup>
+			{`${size} sqm.`}
 		</td>
 		<td>{id}</td>
 	</tr>
@@ -16,7 +15,7 @@ const HouseRow = ({ id, exteriorImages, name, price, size }) => (
 
 HouseRow.propTypes = {
 	id: PropTypes.string.isRequired,
-	exteriorImages: PropTypes.arrayOf(PropTypes.object).isRequired,
+	exteriorImage: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
 	size: PropTypes.number.isRequired

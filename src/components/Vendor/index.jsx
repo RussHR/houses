@@ -22,7 +22,7 @@ const Vendor = ({ displayName, logoThumb, houses }) => (
 					<HouseRow
 						key={houseId}
 						id={houseId}
-						exteriorImages={houseData.exteriorImages}
+						exteriorImage={houseData.exteriorImage}
 						name={houseData.name}
 						price={houseData.price}
 						size={houseData.size}
