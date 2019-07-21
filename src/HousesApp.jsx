@@ -8,6 +8,7 @@ const HousesApp = () => {
 	const [hasError, setError] = useState(false);
 	const [vendors, setVendors] = useState({});
 	const [sortMode, setSortMode] = useState('');
+	const [ascendingOrder, setAscendingOrder] = useState(true);
 
 	/** house fetching functionality */
 	const fetchHouses = () => {
@@ -20,9 +21,12 @@ const HousesApp = () => {
 		fetchHouses();
 	}, []);
 
-	/** sort mode setting functionality */
+	/** sorting functionality */
 	const onChangeSortMode = ({ currentTarget: { value } }) => {
 		setSortMode(value);
+	};
+	const onChangeAscendingOrder = ({ currentTarget: { value } }) => {
+		setAscendingOrder(value === 'ascending');
 	};
 
 	return (
@@ -37,6 +41,11 @@ const HousesApp = () => {
 				<option value="size">Size</option>
 				<option value="id">ID</option>
 			</select>
+			<select aria-label="Toggle ascending or descending order." onChange={onChangeAscendingOrder}>
+				<option value="ascending">Ascending</option>
+				<option value="descending">Descending</option>
+			</select>
+
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
 					key={vendorId}
@@ -44,6 +53,7 @@ const HousesApp = () => {
 					logoThumb={logoThumb}
 					houses={houses}
 					sortMode={sortMode}
+					ascendingOrder={ascendingOrder}
 				/>
 			))}
 		</>

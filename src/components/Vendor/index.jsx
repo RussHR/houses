@@ -8,8 +8,8 @@ import { sortHouses } from '../../helpers/houses';
  * Shows very basic info for a vendor.
  * Renders a table for all the houses they are selling.
  */
-const Vendor = ({ displayName, logoThumb, houses, sortMode }) => {
-	const sortedHouses = sortHouses(houses, sortMode);
+const Vendor = ({ ascendingOrder, displayName, logoThumb, houses, sortMode }) => {
+	const sortedHouses = sortHouses(houses, sortMode, ascendingOrder);
 
 	return (
 		<div>
@@ -43,6 +43,8 @@ const Vendor = ({ displayName, logoThumb, houses, sortMode }) => {
 };
 
 Vendor.propTypes = {
+	/** whether to list the sorted houses in ascending order */
+	ascendingOrder: PropTypes.bool,
 	/** name of the vendor */
 	displayName: PropTypes.string.isRequired,
 	/** img src for a logo of max dimensions 140x50 px */
@@ -54,6 +56,7 @@ Vendor.propTypes = {
 };
 
 Vendor.defaultProps = {
+	ascendingOrder: true,
 	sortMode: ''
 };
 
