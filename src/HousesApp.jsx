@@ -31,14 +31,17 @@ const HousesApp = () => {
 	};
 
 	/** price editing functionality */
-	const handleHousePriceChange = (id, price) => {
+	const handleHousePriceChange = (vendorId, houseId, price) => {
 		const newPricesToEdit = { ...pricesToEdit };
-		newPricesToEdit[id] = price;
+		newPricesToEdit[houseId] = {
+			price,
+			vendorId
+		};
 		setPricesToEdit(newPricesToEdit);
 	};
-	const cancelEditPrice = (id) => {
+	const cancelEditPrice = (houseId) => {
 		const newPricesToEdit = { ...pricesToEdit };
-		delete newPricesToEdit[id];
+		delete newPricesToEdit[houseId];
 		setPricesToEdit(newPricesToEdit);
 	};
 
@@ -62,6 +65,7 @@ const HousesApp = () => {
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
 					key={vendorId}
+					id={vendorId}
 					displayName={displayName}
 					logoThumb={logoThumb}
 					houses={houses}

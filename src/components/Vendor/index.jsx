@@ -13,11 +13,16 @@ const Vendor = ({
 	cancelEditPrice,
 	displayName,
 	handleHousePriceChange,
+	id,
 	logoThumb,
 	houses,
 	sortMode
 }) => {
 	const sortedHouses = sortHouses(houses, sortMode, ascendingOrder);
+
+	const handlePriceChangeAsVendor = (houseId, price) => {
+		handleHousePriceChange(id, houseId, price);
+	}
 
 	return (
 		<div>
@@ -43,7 +48,7 @@ const Vendor = ({
 							price={price}
 							size={size}
 							cancelEditPrice={cancelEditPrice}
-							handleHousePriceChange={handleHousePriceChange}
+							handleHousePriceChange={handlePriceChangeAsVendor}
 						/>
 					))}
 				</tbody>
