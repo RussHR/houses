@@ -2,25 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import HouseRow from './HouseRow';
+import { sortHouses } from '../../helpers/houses';
 
 /**
  * Shows very basic info for a vendor.
  * Renders a table for all the houses they are selling.
  */
 const Vendor = ({ displayName, logoThumb, houses, sortMode }) => {
-	const sortedHouses = Object.entries(houses)
-		.sort(([idA, houseA], [idB, houseB]) => {
-			if (sortMode === 'id') {
-				return parseInt(idA, 10) < parseInt(idB, 10) ? -1 : 1;
-			// eslint-disable-next-line no-else-return
-			} else if (sortMode === 'price' || sortMode === 'size') {
-				return houseA[sortMode] < houseB[sortMode] ? -1 : 1;
-			} else if (sortMode === 'name') {
-				return houseA.name.toLowerCase() < houseB.name.toLowerCase() ? -1 : 1;
-			}
-
-			return 0;
-		});
+	const sortedHouses = sortHouses(houses, sortMode);
 
 	return (
 		<div>
