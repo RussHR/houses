@@ -12,16 +12,14 @@ const HouseRow = ({
 	price,
 	size,
 	handleHousePriceChange,
-	cancelEditPrice
-}) => {
-	const [editingPrice, setEditingPrice] = useState(false);
-	
+	cancelEditPrice,
+	editedPrice
+}) => {	
 	const onClickEdit = () => {
-		setEditingPrice(true);
+		handleHousePriceChange(id, price);
 	};
 
 	const onClickCancel = () => {
-		setEditingPrice(false);
 		cancelEditPrice(id);
 	};
 
@@ -29,7 +27,7 @@ const HouseRow = ({
 		handleHousePriceChange(id, parseInt(value, 10));
 	};
 
-	const priceDisplay = (editingPrice) ? (
+	const priceDisplay = (editedPrice) ? (
 		<>
 			<input type="number" defaultValue={price} onChange={onChangePrice} />
 			<button onClick={onClickCancel}>Cancel</button>

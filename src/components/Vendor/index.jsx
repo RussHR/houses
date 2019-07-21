@@ -20,6 +20,9 @@ const Vendor = ({
 }) => {
 	const sortedHouses = sortHouses(houses, sortMode, ascendingOrder);
 
+	const handleCancelPriceChangeAsVendor = (houseId) => {
+		cancelEditPrice(id, houseId);
+	};
 	const handlePriceChangeAsVendor = (houseId, price) => {
 		handleHousePriceChange(id, houseId, price);
 	}
@@ -39,15 +42,16 @@ const Vendor = ({
 					</tr>
 				</thead>
 				<tbody>
-					{sortedHouses.map(([houseId, { exteriorImage, name, price, size }]) => (
+					{sortedHouses.map(([houseId, { editedPrice, exteriorImage, name, price, size }]) => (
 						<HouseRow
 							key={houseId}
 							id={houseId}
+							editedPrice={editedPrice}
 							exteriorImage={exteriorImage}
 							name={name}
 							price={price}
 							size={size}
-							cancelEditPrice={cancelEditPrice}
+							cancelEditPrice={handleCancelPriceChangeAsVendor}
 							handleHousePriceChange={handlePriceChangeAsVendor}
 						/>
 					))}

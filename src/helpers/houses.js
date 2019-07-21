@@ -25,6 +25,7 @@ export function formatJsonForState({ results }) {
 		}
 
 		housesByVendor[vendorId].houses[internal_id] = {
+			editedPrice: null,
 			exteriorImage: exterior_images[0]['fill-320x240'],
 			name,
 			price,

@@ -9,7 +9,6 @@ const HousesApp = () => {
 	const [vendors, setVendors] = useState({});
 	const [sortMode, setSortMode] = useState('');
 	const [ascendingOrder, setAscendingOrder] = useState(true);
-	const [pricesToEdit, setPricesToEdit] = useState({});
 
 	/** house fetching functionality */
 	const fetchHouses = () => {
@@ -32,29 +31,32 @@ const HousesApp = () => {
 
 	/** price editing functionality */
 	const handleHousePriceChange = (vendorId, houseId, price) => {
-		const newPricesToEdit = { ...pricesToEdit };
-		newPricesToEdit[houseId] = {
-			price,
-			vendorId
-		};
-		setPricesToEdit(newPricesToEdit);
+		const newLocalVendorData = { ...vendors };
+		newLocalVendorData[vendorId].houses[houseId].editedPrice = price;
+		setVendors(newLocalVendorData);
 	};
-	const cancelEditPrice = (houseId) => {
-		const newPricesToEdit = { ...pricesToEdit };
-		delete newPricesToEdit[houseId];
-		setPricesToEdit(newPricesToEdit);
+	const cancelEditPrice = (vendorId, houseId) => {
+		const newLocalVendorData = { ...vendors };
+		newLocalVendorData[vendorId].houses[houseId].editedPrice = null;
+		setVendors(newLocalVendorData);
 	};
 	const savePrices = () => {
 		const newLocalVendorData = { ...vendors };
 		const objForConsoleLogging = { update: [] };
-		Object.entries(pricesToEdit).forEach(([houseId, { vendorId, price }]) => {
-			newLocalVendorData[vendorId].houses[houseId].price = price;
+		Object.keys(newLocalVendorData).forEach(vendorId => {
+			const vendor = newLocalVendorData[vendorId];
+			Object.keys(vendor.houses).forEach(houseId => {
+				const house = vendor.houses[houseId];
+				if (house.editedPrice) {
+					house.price = house.editedPrice;
+					house.editedPrice = null;
+				}
+			});
 		});
 
 		setVendors(newLocalVendorData);
 	};
 
-	const noPricesToEdit = Object.keys(pricesToEdit).length === 0;
 	return (
 		<>
 			{hasError && <span>here is an error</span>}
@@ -71,7 +73,7 @@ const HousesApp = () => {
 				<option value="ascending">Ascending</option>
 				<option value="descending">Descending</option>
 			</select>
-			<button onClick={savePrices} disabled={noPricesToEdit}>Save</button>
+			<button onClick={savePrices}>Save</button>
 
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
