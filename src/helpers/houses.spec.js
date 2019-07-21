@@ -399,7 +399,7 @@ describe('helpers/houses', () => {
 			expect(vendor.houses).toHaveProperty('91');
 			const house = vendor.houses['91'];
 
-			expect(house).toHaveProperty('exteriorImages');
+			expect(house).toHaveProperty('exteriorImage');
 			expect(house).toHaveProperty('name');
 			expect(house).toHaveProperty('price');
 			expect(house).toHaveProperty('size');

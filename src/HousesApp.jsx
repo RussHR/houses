@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { formatJsonForState } from './helpers/houses';
+import Vendor from './components/Vendor';
+
 import './main.css';
 
 const HousesApp = () => {
@@ -21,7 +23,14 @@ const HousesApp = () => {
 		<>
 			{hasError && <span>here is an error</span>}
 			<span>houses are here!</span>
-			<p>{JSON.stringify(vendors)}</p>
+			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
+				<Vendor
+					key={vendorId}
+					displayName={displayName}
+					logoThumb={logoThumb}
+					houses={houses}
+				/>
+			))}
 		</>
 	);
 };
