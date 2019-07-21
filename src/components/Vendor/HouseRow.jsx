@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const HouseRow = ({ id, exteriorImage, name, price, size }) => (
-	<tr>
+	<tr data-qa="house-row">
 		<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
 		<td>{name}</td>
 		<td>{`${price}€`}</td>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import HouseRow from './HouseRow';
 
 const Vendor = ({ displayName, logoThumb, houses }) => (
-	<>
+	<div>
 		{displayName}
 		<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
 		<table>
@@ -18,19 +18,19 @@ const Vendor = ({ displayName, logoThumb, houses }) => (
 				</tr>
 			</thead>
 			<tbody>
-				{Object.entries(houses).map(([houseId, houseData]) => (
+				{Object.entries(houses).map(([houseId, { exteriorImage, name, price, size }]) => (
 					<HouseRow
 						key={houseId}
 						id={houseId}
-						exteriorImage={houseData.exteriorImage}
-						name={houseData.name}
-						price={houseData.price}
-						size={houseData.size}
+						exteriorImage={exteriorImage}
+						name={name}
+						price={price}
+						size={size}
 					/>
 				))}
 			</tbody>
 		</table>
-	</>
+	</div>
 );
 
 Vendor.propTypes = {

@@ -23,12 +23,12 @@ const HousesApp = () => {
 		<>
 			{hasError && <span>here is an error</span>}
 			<span>houses are here!</span>
-			{Object.entries(vendors).map(([vendorId, vendorData]) => (
+			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
 					key={vendorId}
-					displayName={vendorData.displayName}
-					logoThumb={vendorData.logoThumb}
-					houses={vendorData.houses}
+					displayName={displayName}
+					logoThumb={logoThumb}
+					houses={houses}
 				/>
 			))}
 		</>
