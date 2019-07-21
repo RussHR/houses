@@ -1,4 +1,4 @@
-import { formatJsonForState } from './houses';
+import { formatJsonForState, sortHouses } from './houses';
 
 /* eslint-disable */
 const exampleRes = {
@@ -371,6 +371,29 @@ const exampleRes = {
 	"payload": { top_placement: [] },
 	"total_count": 239
 };
+
+const houses = {
+	"1": {
+		exteriorImage: 'otherexample.com',
+		name: 'house 1',
+		price: 3,
+		size: 33
+	},
+	"2": {
+		exteriorImage: 'otherexample.com',
+		name: 'Zebra House',
+		price: 2,
+		size: 10
+	},
+	"4": {
+		exteriorImage: 'otherexample.com',
+		name: 'House 4',
+		price: 4,
+		size: 8
+	}
+
+};
+
 /* eslint-enable */
 
 describe('helpers/houses', () => {
@@ -409,6 +432,39 @@ describe('helpers/houses', () => {
 			const vendor = formattedState['43'];
 			expect(vendor.houses).toHaveProperty('2671');
 			expect(vendor.houses).toHaveProperty('2678');
+		});
+	});
+
+	describe('sortHouses', () => {
+		test('sorts by id', () => {
+			const sortedHouses = sortHouses(houses, 'id');
+			expect(sortedHouses[0][0]).toEqual('1');
+			expect(sortedHouses[1][0]).toEqual('2');
+			expect(sortedHouses[2][0]).toEqual('4');
+		});
+		test('sorts by name', () => {
+			const sortedHouses = sortHouses(houses, 'name');
+			expect(sortedHouses[0][0]).toEqual('1');
+			expect(sortedHouses[1][0]).toEqual('4');
+			expect(sortedHouses[2][0]).toEqual('2');
+		});
+		test('sorts by price', () => {
+			const sortedHouses = sortHouses(houses, 'price');
+			expect(sortedHouses[0][0]).toEqual('2');
+			expect(sortedHouses[1][0]).toEqual('1');
+			expect(sortedHouses[2][0]).toEqual('4');
+		});
+		test('sorts by size', () => {
+			const sortedHouses = sortHouses(houses, 'size');
+			expect(sortedHouses[0][0]).toEqual('4');
+			expect(sortedHouses[1][0]).toEqual('2');
+			expect(sortedHouses[2][0]).toEqual('1');
+		});
+		test('sorts by descending order', () => {
+			const sortedHouses = sortHouses(houses, 'id', false);
+			expect(sortedHouses[0][0]).toEqual('4');
+			expect(sortedHouses[1][0]).toEqual('2');
+			expect(sortedHouses[2][0]).toEqual('1');
 		});
 	});
 });

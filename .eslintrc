@@ -20,6 +20,8 @@
 	"rules": {
 		"comma-dangle": ["error", "never"],
 		"indent": ["error", "tab"],
+		"jsx-a11y/label-has-associated-control": [0, {}], // failing due to bug
+		"jsx-a11y/label-has-for": [0, {}],
 		"no-tabs": 0,
 		"object-curly-newline": [0, {}],
 		"react/jsx-indent": [true, "tab"],
