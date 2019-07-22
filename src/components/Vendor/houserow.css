@@ -1,0 +1,26 @@
+@import "../../styles/_variables.css";
+
+.houseRow > td {
+	padding: 0.5rem;
+	border: 1px solid black;
+	text-align: center;
+	word-break: break-word;
+}
+
+.houseRow:nth-child(odd) {
+	background-color: var(--house-row-odd-bg-color);
+}
+
+.houseRow__img {
+	max-width: 100%;
+}
+
+.houseRow__price {
+	display: inline-block;
+	margin: 0.5rem;
+}
+
+.houseRow__price--edit {
+	margin: 0.5rem;
+	max-width: calc(100% - 1rem);
+}

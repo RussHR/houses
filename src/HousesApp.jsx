@@ -74,7 +74,7 @@ const HousesApp = () => {
 				onClickSavePrices={onClickSavePrices}
 			/>
 
-			<main className="housesapp-main">
+			<main>
 				{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 					<Vendor
 						key={vendorId}

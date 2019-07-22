@@ -5,6 +5,7 @@
 
 	/* non-exportable */
 	--golden-yellow: #ffe100;
+	--lemon-chiffon-yellow: #fff7bf;
 	--cerulean-blue: #0083aa;
 	--allports-blue: #1c5e7d;
 	--white: #fff;
@@ -17,6 +18,7 @@
 	--main-bg-color: var(--white);
 	--menu-bg-color: var(--cerulean-blue);
 	--menu-color: var(--white);
+	--house-row-odd-bg-color: var(--lemon-chiffon-yellow);
 
 	/**
 	 * LAYOUT
@@ -32,9 +34,9 @@
 	/* sizing */
 	--menu-height: 3.5rem;
 	--menu-height-med-mobile: 7rem;
-	--menu-side-padding: 3rem;
-	--menu-side-padding-med-mobile: 2rem;
-	--menu-side-padding-sm-mobile: 1rem;
+	--gutter-width: 3rem;
+	--gutter-width-med-mobile: 2rem;
+	--gutter-width-sm-mobile: 1rem;
 
 	/**
 	 * TYPOGRAPHY

@@ -12,7 +12,7 @@ const api = http.createServer(function(req, res) {
       fs.readFile(__dirname + '/fixtures/houses.json', (err, data) => {
         res.end(data)
       })
-    }, 2000)
+    }, 2)
   } else {
     res.end('Only /houses will return anything')
   }

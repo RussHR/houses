@@ -1,0 +1,48 @@
+@import "../../styles/_variables.css";
+
+.vendor {
+	max-width: calc(var(--app-max-width) + var(--gutter-width) + var(--gutter-width));
+	margin: 0 auto 4rem;
+	padding: 0 var(--gutter-width);
+}
+
+.vendor:first-of-type {
+	padding-top: calc(var(--menu-height) + 2rem);
+}
+
+.vendor__displayInfo {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.vendor__displayInfo > img {
+	margin-right: 1rem;
+}
+
+.vendor__tableWrapper {
+	max-height: 32rem;
+	overflow-y: scroll;
+}
+
+.vendor__table {
+	table-layout: fixed;
+	width: calc(100% - 1px);
+	border-collapse: collapse;
+}
+
+@media screen and (max-width: 48rem) {
+	.vendor {
+		padding: 0 var(--gutter-width-med-mobile);
+	}
+}
+
+@media screen and (max-width: 35.5rem) {
+	.vendor {
+		padding: 0 var(--gutter-width-sm-mobile);
+	}
+
+	.vendor:first-of-type {
+		padding-top: 1rem;
+	}
+}

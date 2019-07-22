@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import HouseRow from './HouseRow';
 import { sortHouses } from '../../helpers/houses';
 
+import './vendor.css';
+
 /**
  * Shows very basic info for a vendor.
  * Renders a table for all the houses they are selling.
@@ -28,36 +30,40 @@ const Vendor = ({
 	};
 
 	return (
-		<div>
-			{displayName}
-			<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
-			<table>
-				<thead>
-					<tr>
-						<th>Preview Image</th>
-						<th>Name</th>
-						<th>Price</th>
-						<th>Size</th>
-						<th>ID</th>
-					</tr>
-				</thead>
-				<tbody>
-					{sortedHouses.map(([houseId, { editedPrice, exteriorImage, name, price, size }]) => (
-						<HouseRow
-							key={houseId}
-							id={houseId}
-							editedPrice={editedPrice}
-							exteriorImage={exteriorImage}
-							name={name}
-							price={price}
-							size={size}
-							cancelEditPrice={handleCancelPriceChangeAsVendor}
-							handleHousePriceChange={handlePriceChangeAsVendor}
-						/>
-					))}
-				</tbody>
-			</table>
-		</div>
+		<section className="vendor">
+			<div className="vendor__displayInfo">
+				<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
+				<h2>{displayName}</h2>
+			</div>
+			<div className="vendor__tableWrapper">
+				<table className="vendor__table">
+					<thead>
+						<tr>
+							<th>Preview Image</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Size</th>
+							<th>ID</th>
+						</tr>
+					</thead>
+					<tbody>
+						{sortedHouses.map(([houseId, { editedPrice, exteriorImage, name, price, size }]) => (
+							<HouseRow
+								key={houseId}
+								id={houseId}
+								editedPrice={editedPrice}
+								exteriorImage={exteriorImage}
+								name={name}
+								price={price}
+								size={size}
+								cancelEditPrice={handleCancelPriceChangeAsVendor}
+								handleHousePriceChange={handlePriceChangeAsVendor}
+							/>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
 	);
 };
 

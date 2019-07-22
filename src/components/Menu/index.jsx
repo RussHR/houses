@@ -6,7 +6,9 @@ import './menu.css';
 const Menu = ({ onChangeAscendingOrder, onChangeSortMode, onClickSavePrices }) => (
 	<div className="menu__wrapper">
 		<menu className="menu">
-			<li className="menu__item">Houses App</li>
+			<li className="menu__item">
+				<h1 className="menu_appName">Houses App</h1>
+			</li>
 			<li className="menu__item">
 				<label htmlFor="sort-mode">Sort by: </label>
 				<select id="sort-mode" onChange={onChangeSortMode} className="menu__select">
