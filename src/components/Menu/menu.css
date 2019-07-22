@@ -2,19 +2,27 @@
 
 .menu {
 	height: var(--menu-height);
+	padding: 0 var(--menu-side-padding);
 	display: flex;
 	align-items: center;
 	position: fixed;
 	width: 100%;
 	margin: 0;
 	background-color: var(--menu-bg-color);
+	color: var(--menu-color);
 }
 
 .menu__item {
 	list-style: none;
+	margin: 0 0.25rem;
 }
 
 .menu__item:first-of-type {
-	margin-right: auto;
+	margin: 0 auto 0 0;
 	font-weight: var(--font-weight-bold);
+	font-size: 1.5em;
+}
+
+.menu__item:last-of-type {
+	margin: 0 0 0 0.25rem;
 }
