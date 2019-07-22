@@ -1,10 +1,14 @@
 @import "../../styles/_variables.css";
 
-.houseRow > td {
+.houseRow__cell {
 	padding: 0.5rem;
 	border: 1px solid black;
 	text-align: center;
 	word-break: break-word;
+}
+
+.houseRow__smLabel {
+	display: none;
 }
 
 .houseRow:nth-child(odd) {
@@ -23,4 +27,23 @@
 .houseRow__price--edit {
 	margin: 0.5rem;
 	max-width: calc(100% - 1rem);
+}
+
+@media screen and (max-width: 48rem) {
+	.houseRow__cell {
+		display: block;
+		border-style: none;
+	}
+
+	.houseRow__cell:first-of-type {
+		display: table-cell;
+	}
+
+	.houseRow__smLabel {
+		display: initial;
+	}
+
+	.houseRow__price {
+		margin-left: 0;
+	}
 }
