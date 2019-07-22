@@ -1,8 +1,14 @@
+@import "../../styles/_variables.css";
+
 .houseRow > td {
 	padding: 0.5rem;
 	border: 1px solid black;
 	text-align: center;
 	word-break: break-word;
+}
+
+.houseRow:nth-child(odd) {
+	background-color: var(--house-row-odd-bg-color);
 }
 
 .houseRow__img {

@@ -5,6 +5,7 @@
 
 	/* non-exportable */
 	--golden-yellow: #ffe100;
+	--lemon-chiffon-yellow: #fff7bf;
 	--cerulean-blue: #0083aa;
 	--allports-blue: #1c5e7d;
 	--white: #fff;
@@ -17,6 +18,7 @@
 	--main-bg-color: var(--white);
 	--menu-bg-color: var(--cerulean-blue);
 	--menu-color: var(--white);
+	--house-row-odd-bg-color: var(--lemon-chiffon-yellow);
 
 	/**
 	 * LAYOUT
