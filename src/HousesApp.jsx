@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatJsonForState } from './helpers/houses';
+import Menu from './components/Menu';
 import Vendor from './components/Vendor';
 
 import './main.css';
@@ -40,7 +41,7 @@ const HousesApp = () => {
 		newLocalVendorData[vendorId].houses[houseId].editedPrice = null;
 		setVendors(newLocalVendorData);
 	};
-	const savePrices = () => {
+	const onClickSavePrices = () => {
 		const newLocalVendorData = { ...vendors };
 		const objForConsoleLogging = { update: [] };
 
@@ -66,20 +67,11 @@ const HousesApp = () => {
 	return (
 		<>
 			{hasError && <span>here is an error</span>}
-			<span>houses are here!</span>
-			<label htmlFor="sort-mode">Sort by:</label>
-			<select id="sort-mode" onChange={onChangeSortMode}>
-				<option value="">--</option>
-				<option value="name">Name</option>
-				<option value="price">Price</option>
-				<option value="size">Size</option>
-				<option value="id">ID</option>
-			</select>
-			<select aria-label="Toggle ascending or descending order." onChange={onChangeAscendingOrder}>
-				<option value="ascending">Ascending</option>
-				<option value="descending">Descending</option>
-			</select>
-			<button type="button" onClick={savePrices}>Save</button>
+			<Menu
+				onChangeSortMode={onChangeSortMode}
+				onChangeAscendingOrder={onChangeAscendingOrder}
+				onClickSavePrices={onClickSavePrices}
+			/>
 
 			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
 				<Vendor
