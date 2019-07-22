@@ -1,0 +1,13 @@
+@import "./_variables.css";
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	background-color: var(--main-bg-color);
+}

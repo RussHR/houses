@@ -4,7 +4,7 @@ import Menu from './components/Menu';
 import Vendor from './components/Vendor';
 
 import 'normalize.css';
-import './main.css';
+import './styles/main.css';
 
 const HousesApp = () => {
 	const [hasError, setError] = useState(false);

@@ -1,0 +1,11 @@
+:root {
+	/* COLORS */
+
+	/* non-exportable */
+	--cerulean-blue: #0083aa;
+	--white: #fff;
+
+	/* exportable */
+	--main-bg-color: var(--white);
+	--menu-bg-color: var(--cerulean-blue);
+}
