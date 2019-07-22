@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../Button';
+
 /**
  * Contains all the information shown for a house.
  * Rendered alongside other houses under the same vendor.
@@ -35,24 +37,22 @@ const HouseRow = ({
 				onChange={onChangePrice}
 				data-qa="edit-price-input"
 			/>
-			<button
-				type="button"
+			<Button
 				onClick={onClickCancel}
 				data-qa="cancel-edit-price-button"
 			>
 				Cancel
-			</button>
+			</Button>
 		</>
 	) : (
 		<>
 			{`${price}€`}
-			<button
-				type="button"
+			<Button
 				onClick={onClickEdit}
 				data-qa="edit-price-button"
 			>
 				Edit
-			</button>
+			</Button>
 		</>
 	);
 
