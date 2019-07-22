@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 
+import './houserow.css';
+
 /**
  * Contains all the information shown for a house.
  * Rendered alongside other houses under the same vendor.
@@ -57,7 +59,7 @@ const HouseRow = ({
 	);
 
 	return (
-		<tr data-qa="house-row">
+		<tr className="houseRow" data-qa="house-row">
 			<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
 			<td>{name}</td>
 			<td>{priceDisplay}</td>

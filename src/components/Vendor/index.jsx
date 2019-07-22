@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import HouseRow from './HouseRow';
 import { sortHouses } from '../../helpers/houses';
 
+import './vendor.css';
+
 /**
  * Shows very basic info for a vendor.
  * Renders a table for all the houses they are selling.
@@ -28,10 +30,10 @@ const Vendor = ({
 	};
 
 	return (
-		<div>
+		<section>
 			{displayName}
 			<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
-			<table>
+			<table className="vendor__table">
 				<thead>
 					<tr>
 						<th>Preview Image</th>
@@ -57,7 +59,7 @@ const Vendor = ({
 					))}
 				</tbody>
 			</table>
-		</div>
+		</section>
 	);
 };
 
