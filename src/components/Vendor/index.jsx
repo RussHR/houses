@@ -31,8 +31,10 @@ const Vendor = ({
 
 	return (
 		<section className="vendor">
-			{displayName}
-			<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
+			<div className="vendor__displayInfo">
+				<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
+				<h2>{displayName}</h2>
+			</div>
 			<table className="vendor__table">
 				<thead>
 					<tr>
