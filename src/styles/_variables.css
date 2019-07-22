@@ -17,6 +17,7 @@
 	--menu-color: var(--white);
 
 	/* LAYOUT */
+	--app-max-width: 76.5rem;
 	--menu-height: 3.5rem;
 	--menu-side-padding: 3rem;
 

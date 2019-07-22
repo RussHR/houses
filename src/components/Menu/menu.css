@@ -1,15 +1,20 @@
 @import "../../styles/_variables.css";
 
-.menu {
+.menu__wrapper {
 	height: var(--menu-height);
-	padding: 0 var(--menu-side-padding);
-	display: flex;
-	align-items: center;
 	position: fixed;
 	width: 100%;
-	margin: 0 auto;
 	background-color: var(--menu-bg-color);
 	color: var(--menu-color);
+}
+
+.menu {
+	height: 100%;
+	max-width: calc(var(--app-max-width) + var(--menu-side-padding) + var(--menu-side-padding));
+	padding: 0 var(--menu-side-padding);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
 }
 
 .menu__item {
