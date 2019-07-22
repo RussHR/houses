@@ -50,7 +50,7 @@ export function sortHouses(houses, sortMode = '', ascendingOrder = true) {
 	return Object.entries(houses)
 		.sort(([idA, houseA], [idB, houseB]) => {
 			if (sortMode === 'id') {
-				return parseInt(idA, 10) < parseInt(idB, 10) ? lowerVal : higherVal;
+				return parseFloat(idA, 10) < parseFloat(idB, 10) ? lowerVal : higherVal;
 				// eslint-disable-next-line no-else-return
 			} else if (sortMode === 'price' || sortMode === 'size') {
 				return houseA[sortMode] < houseB[sortMode] ? lowerVal : higherVal;

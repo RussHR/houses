@@ -1,4 +1,4 @@
-import { render, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 
 import HouseRow from './HouseRow';

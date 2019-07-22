@@ -1,0 +1,21 @@
+@import "../../styles/_variables.css";
+
+.button {
+	min-height: 2.75rem;
+	min-width: 2.75rem;
+	border: 1px solid var(--button-border-color);
+	background-color: var(--menu-bg-color);
+	color: var(--menu-color);
+	cursor: pointer;
+}
+
+.button:focus,
+.button:active,
+.button:hover {
+	color: var(--button-color-active);
+}
+
+/* needed due to specificity */
+button.button {
+	-webkit-appearance: none;
+}

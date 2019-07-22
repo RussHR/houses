@@ -1,0 +1,25 @@
+@import "./_variables.css";
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+	font-family: 'Lato', sans-serif;
+	font-weight: var(--font-weight-standard);
+}
+
+body {
+	background-color: var(--main-bg-color);
+}
+
+.housesapp-main {
+	padding-top: calc(var(--menu-height) + 1rem);
+}
+
+@media screen and (max-width: 35.5rem) {
+	.housesapp-main {
+		padding-top: 1rem;
+	}
+}
