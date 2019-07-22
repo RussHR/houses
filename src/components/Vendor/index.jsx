@@ -30,7 +30,7 @@ const Vendor = ({
 	};
 
 	return (
-		<section>
+		<section className="vendor">
 			{displayName}
 			<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
 			<table className="vendor__table">
