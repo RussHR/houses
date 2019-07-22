@@ -24,12 +24,16 @@
 
 .menu__item:first-of-type {
 	margin: 0 auto 0 0;
-	font-weight: var(--font-weight-bold);
-	font-size: 1.5em;
 }
 
 .menu__item:last-of-type {
 	margin: 0 0 0 0.25rem;
+}
+
+.menu_appName {
+	margin: 0;
+	font-size: 1.5em;
+	font-weight: var(--font-weight-bold);
 }
 
 .menu__select {

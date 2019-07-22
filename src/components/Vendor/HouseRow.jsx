@@ -37,6 +37,7 @@ const HouseRow = ({
 				type="number"
 				defaultValue={price}
 				onChange={onChangePrice}
+				className="houseRow__price--edit"
 				data-qa="edit-price-input"
 			/>
 			<Button
@@ -48,7 +49,7 @@ const HouseRow = ({
 		</>
 	) : (
 		<>
-			{`${price}€`}
+			<span className="houseRow__price">{`${price}€`}</span>
 			<Button
 				onClick={onClickEdit}
 				data-qa="edit-price-button"
@@ -60,7 +61,13 @@ const HouseRow = ({
 
 	return (
 		<tr className="houseRow" data-qa="house-row">
-			<td><img src={exteriorImage} alt={`Preview for house ${name}.`} /></td>
+			<td>
+				<img
+					className="houseRow__img"
+					src={exteriorImage}
+					alt={`Preview for house ${name}.`}
+				/>
+			</td>
 			<td>{name}</td>
 			<td>{priceDisplay}</td>
 			<td>
