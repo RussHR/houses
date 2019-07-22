@@ -1,4 +1,7 @@
 :root {
+	/* LAYOUT */
+	--menu-height: 3.5rem;
+
 	/* COLORS */
 
 	/* non-exportable */
@@ -8,4 +11,9 @@
 	/* exportable */
 	--main-bg-color: var(--white);
 	--menu-bg-color: var(--cerulean-blue);
+	--menu-color: var(--white);
+
+	/* TYPOGRAPHY */
+	--font-weight-standard: 300;
+	--font-weight-bold: 400;
 }

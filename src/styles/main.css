@@ -6,8 +6,14 @@
 
 html {
 	font-size: 100%;
+	font-family: 'Lato', sans-serif;
+	font-weight: var(--font-weight-standard);
 }
 
 body {
 	background-color: var(--main-bg-color);
+}
+
+.housesapp-main {
+	padding-top: calc(var(--menu-height) + 1rem);
 }

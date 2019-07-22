@@ -74,19 +74,21 @@ const HousesApp = () => {
 				onClickSavePrices={onClickSavePrices}
 			/>
 
-			{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
-				<Vendor
-					key={vendorId}
-					id={vendorId}
-					displayName={displayName}
-					logoThumb={logoThumb}
-					houses={houses}
-					sortMode={sortMode}
-					ascendingOrder={ascendingOrder}
-					handleHousePriceChange={handleHousePriceChange}
-					cancelEditPrice={cancelEditPrice}
-				/>
-			))}
+			<main className="housesapp-main">
+				{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
+					<Vendor
+						key={vendorId}
+						id={vendorId}
+						displayName={displayName}
+						logoThumb={logoThumb}
+						houses={houses}
+						sortMode={sortMode}
+						ascendingOrder={ascendingOrder}
+						handleHousePriceChange={handleHousePriceChange}
+						cancelEditPrice={cancelEditPrice}
+					/>
+				))}
+			</main>
 		</>
 	);
 };

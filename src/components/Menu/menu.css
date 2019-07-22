@@ -1,7 +1,7 @@
 @import "../../styles/_variables.css";
 
 .menu {
-	height: 3.5rem;
+	height: var(--menu-height);
 	display: flex;
 	align-items: center;
 	position: fixed;
@@ -16,4 +16,5 @@
 
 .menu__item:first-of-type {
 	margin-right: auto;
+	font-weight: var(--font-weight-bold);
 }
