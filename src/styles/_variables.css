@@ -1,18 +1,24 @@
 :root {
-	/* LAYOUT */
-	--menu-height: 3.5rem;
-	--menu-side-padding: 3rem;
-
 	/* COLORS */
 
 	/* non-exportable */
+	--golden-yellow: #ffe100;
 	--cerulean-blue: #0083aa;
+	--allports-blue: #1c5e7d;
 	--white: #fff;
+	--black: #000;
 
 	/* exportable */
+	--button-bg-color: var(--black);
+	--button-color-active: var(--golden-yellow);
+	--button-border-color: var(--allports-blue);
 	--main-bg-color: var(--white);
 	--menu-bg-color: var(--cerulean-blue);
 	--menu-color: var(--white);
+
+	/* LAYOUT */
+	--menu-height: 3.5rem;
+	--menu-side-padding: 3rem;
 
 	/* TYPOGRAPHY */
 	--font-weight-standard: 300;

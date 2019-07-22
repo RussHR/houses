@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Button from '../Button';
 import './menu.css';
 
 const Menu = ({ onChangeAscendingOrder, onChangeSortMode, onClickSavePrices }) => (
@@ -23,7 +23,7 @@ const Menu = ({ onChangeAscendingOrder, onChangeSortMode, onClickSavePrices }) =
 			</select>
 		</li>
 		<li className="menu__item">
-			<button type="button" onClick={onClickSavePrices}>Save</button>
+			<Button onClick={onClickSavePrices}>Save</Button>
 		</li>
 	</menu>
 );
