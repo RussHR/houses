@@ -33,6 +33,7 @@
 	.houseRow__cell {
 		display: block;
 		border-style: none;
+		padding: 1rem;
 	}
 
 	.houseRow__cell:first-of-type {
@@ -45,5 +46,15 @@
 
 	.houseRow__price {
 		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 35.5rem) {
+	.houseRow__cell {
+		padding: 0.75rem;
+	}
+
+	.houseRow__cell:first-of-type {
+		display: block;
 	}
 }
