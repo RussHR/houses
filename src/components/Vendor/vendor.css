@@ -35,6 +35,10 @@
 	.vendor {
 		padding: 0 var(--gutter-width-med-mobile);
 	}
+
+	.vendor__table > thead {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 35.5rem) {

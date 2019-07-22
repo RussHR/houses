@@ -61,19 +61,29 @@ const HouseRow = ({
 
 	return (
 		<tr className="houseRow" data-qa="house-row">
-			<td>
+			<td className="houseRow__cell">
 				<img
 					className="houseRow__img"
 					src={exteriorImage}
 					alt={`Preview for house ${name}.`}
 				/>
 			</td>
-			<td>{name}</td>
-			<td>{priceDisplay}</td>
-			<td>
+			<td className="houseRow__cell">
+				<span className="houseRow__smLabel">Name: </span>
+				{name}
+			</td>
+			<td className="houseRow__cell">
+				<span className="houseRow__smLabel">Price: </span>
+				{priceDisplay}
+			</td>
+			<td className="houseRow__cell">
+				<span className="houseRow__smLabel">Size: </span>
 				{`${size} sqm.`}
 			</td>
-			<td>{id}</td>
+			<td className="houseRow__cell">
+				<span className="houseRow__smLabel">ID: </span>
+				{id}
+			</td>
 		</tr>
 	);
 };
