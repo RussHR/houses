@@ -3,6 +3,7 @@ import { formatJsonForState } from './helpers/houses';
 import Menu from './components/Menu';
 import Vendor from './components/Vendor';
 
+import 'normalize.css';
 import './main.css';
 
 const HousesApp = () => {

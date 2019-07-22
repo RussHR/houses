@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './menu.css';
+
 const Menu = ({ onChangeAscendingOrder, onChangeSortMode, onClickSavePrices }) => (
-	<menu>
+	<menu className="menu">
 		<li>Houses</li>
 		<li>
 			<label htmlFor="sort-mode">Sort by:</label>
