@@ -35,32 +35,34 @@ const Vendor = ({
 				<img src={logoThumb} alt={`Thumbnail for vendor ${displayName}.`} />
 				<h2>{displayName}</h2>
 			</div>
-			<table className="vendor__table">
-				<thead>
-					<tr>
-						<th>Preview Image</th>
-						<th>Name</th>
-						<th>Price</th>
-						<th>Size</th>
-						<th>ID</th>
-					</tr>
-				</thead>
-				<tbody>
-					{sortedHouses.map(([houseId, { editedPrice, exteriorImage, name, price, size }]) => (
-						<HouseRow
-							key={houseId}
-							id={houseId}
-							editedPrice={editedPrice}
-							exteriorImage={exteriorImage}
-							name={name}
-							price={price}
-							size={size}
-							cancelEditPrice={handleCancelPriceChangeAsVendor}
-							handleHousePriceChange={handlePriceChangeAsVendor}
-						/>
-					))}
-				</tbody>
-			</table>
+			<div className="vendor__tableWrapper">
+				<table className="vendor__table">
+					<thead>
+						<tr>
+							<th>Preview Image</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Size</th>
+							<th>ID</th>
+						</tr>
+					</thead>
+					<tbody>
+						{sortedHouses.map(([houseId, { editedPrice, exteriorImage, name, price, size }]) => (
+							<HouseRow
+								key={houseId}
+								id={houseId}
+								editedPrice={editedPrice}
+								exteriorImage={exteriorImage}
+								name={name}
+								price={price}
+								size={size}
+								cancelEditPrice={handleCancelPriceChangeAsVendor}
+								handleHousePriceChange={handlePriceChangeAsVendor}
+							/>
+						))}
+					</tbody>
+				</table>
+			</div>
 		</section>
 	);
 };
