@@ -8,7 +8,7 @@ const Menu = ({ onChangeAscendingOrder, onChangeSortMode, onClickSavePrices }) =
 		<li className="menu__item">Houses App</li>
 		<li className="menu__item">
 			<label htmlFor="sort-mode">Sort by: </label>
-			<select id="sort-mode" onChange={onChangeSortMode}>
+			<select id="sort-mode" onChange={onChangeSortMode} className="menu__select">
 				<option value="">--</option>
 				<option value="name">Name</option>
 				<option value="price">Price</option>
@@ -17,7 +17,11 @@ const Menu = ({ onChangeAscendingOrder, onChangeSortMode, onClickSavePrices }) =
 			</select>
 		</li>
 		<li className="menu__item">
-			<select aria-label="Toggle ascending or descending order." onChange={onChangeAscendingOrder}>
+			<select
+				aria-label="Toggle ascending or descending order."
+				onChange={onChangeAscendingOrder}
+				className="menu__select"
+			>
 				<option value="ascending">Ascending</option>
 				<option value="descending">Descending</option>
 			</select>

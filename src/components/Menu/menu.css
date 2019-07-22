@@ -7,7 +7,7 @@
 	align-items: center;
 	position: fixed;
 	width: 100%;
-	margin: 0;
+	margin: 0 auto;
 	background-color: var(--menu-bg-color);
 	color: var(--menu-color);
 }
@@ -25,4 +25,19 @@
 
 .menu__item:last-of-type {
 	margin: 0 0 0 0.25rem;
+}
+
+.menu__select {
+	height: 2.75rem;
+	outline-style: none;
+	border: 1px solid var(--button-border-color);
+	background-color: var(--menu-bg-color);
+	color: var(--menu-color);
+	cursor: pointer;
+}
+
+.menu__select:focus,
+.menu__select:active,
+.menu__select:hover {
+	color: var(--button-color-active);
 }
