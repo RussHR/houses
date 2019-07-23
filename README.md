@@ -81,6 +81,7 @@ Possibly, though this is the first time I've used them to build a project. I lik
   * Allow multiple images to be shown for a house if available, possibly with a lightbox or other UI element
   * take advantage of `srcset` and the different image sizes provided for a house
 * Explore design more. The responsiveness is adequate, but it would be nice to have a more elegant solution.
+* More thorough testing on different browsers. 👀👀👀
 * Sleep! Exercise! Eat well.
 
 
