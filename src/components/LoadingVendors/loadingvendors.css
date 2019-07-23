@@ -1,5 +1,77 @@
 @import "../../styles/_variables.css";
 
-.loadingVendors {
-	margin: var(--menu-height);
+.loadingVendors__text {
+	position: relative;
+	top: -7rem;
+	margin: 0;
+	text-align: center;
+	font-size: 2em;
+}
+
+/* borrowed from https://projects.lukehaas.me/css-loaders/ */
+.loadingVendors__bars,
+.loadingVendors__bars::before,
+.loadingVendors__bars::after {
+	width: 1rem;
+	height: 4rem;
+	background: var(--menu-bg-color);
+	-webkit-animation: load1 1s infinite ease-in-out;
+	animation: load1 1s infinite ease-in-out;
+}
+
+.loadingVendors__bars {
+	position: relative;
+	margin: 8rem auto;
+	color: var(--menu-bg-color);
+	font-size: 1em;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+
+.loadingVendors__bars::before,
+.loadingVendors__bars::after {
+	position: absolute;
+	top: 0;
+	content: '';
+}
+
+.loadingVendors__bars::before {
+	left: -1.5em;
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+
+.loadingVendors__bars::after {
+	left: 1.5em;
+}
+
+@-webkit-keyframes load1 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0;
+		height: 4em;
+	}
+
+	40% {
+		box-shadow: 0 -2em;
+		height: 5em;
+	}
+}
+
+@keyframes load1 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0;
+		height: 4em;
+	}
+
+	40% {
+		box-shadow: 0 -2em;
+		height: 5em;
+	}
 }
