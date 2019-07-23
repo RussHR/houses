@@ -25,18 +25,18 @@ Then, run the following to get webpack up and running with a local dev server:
 npm run start
 ```
 
-Then visit `localhost:8080` and you're good to go! (normally, your browser should open up automatically to `localhost:8080`)
+Then visit `localhost:8080` and you're good to go (normally, your browser should open up automatically to `localhost:8080`)! You can also run `npm run lint` and `npm run test` do run those tasks, respecively.
 
 
 ## Building production files
 
-Running `npm run build` will create a `dist/` directory with an `index.html` and `main.js`. You should be able to open `main.js` and have everything working, but you will still need to provide the API endpoint for the houses at `localhost:1337/houses`.
+Running `npm run build` will create a `dist/` directory with an `index.html` and `main.js`. You should be able to open `main.js` and have everything working in your browser, but you will still need to provide the API endpoint for the houses at `localhost:1337/houses`.
 
 ## Why not Redux?
 
 Redux is great, but it introduces a lot of overhead and complexity. In this particular case, I decided not to use it due to the app being so small. The application state is still held at the highest level (`<HousesApp />`).
 
-## What does the store of the application look like?
+## What does the state of the application look like?
 
 Since this application uses hooks, there isn't an easy way to look at the application state at a glance. If it were a more traditional React Component, here's what the state schema would look like:
 
@@ -69,7 +69,7 @@ True, it would make rendering houses less cumbersome if houses were stored as an
 
 ## Are React Hooks the future?
 
-Possibly, though this is the first time I've used them to build a project. I like that they can make files shorter, but I don't necessarily think the code becomes more readable. It's harder to keep track of what exactly the state is, and support for hooks via other tools, like React Developer Tools, is still lacking.
+Possibly, though this is the first time I've used them to build a project. I like that they can make files shorter, but I don't necessarily think the code becomes more readable. It's harder to keep track of what exactly the state is, and support for hooks with other tools, like React Developer Tools, is still lacking.
 
 ## Things I would do with more time:
 
