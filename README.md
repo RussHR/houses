@@ -25,7 +25,7 @@ Then, run the following to get webpack up and running with a local dev server:
 npm run start
 ```
 
-Then visit `localhost:8080` and you're good to go (normally, your browser should open up automatically to `localhost:8080`)! You can also run `npm run lint` and `npm run test` do run those tasks, respecively.
+Then visit `localhost:8080` and you're good to go (normally, your browser should open up automatically to `localhost:8080`)! You can also run `npm run lint` and `npm run test` to run those tasks, respecively.
 
 
 ## Building production files
