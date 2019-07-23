@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatJsonForState } from './helpers/houses';
+import LoadingVendors from './components/LoadingVendors';
 import Menu from './components/Menu';
 import Vendor from './components/Vendor';
 
@@ -65,9 +66,35 @@ const HousesApp = () => {
 		setVendors(newLocalVendorData);
 	};
 
+	let mainContent;
+
+	if (hasError) {
+		mainContent = (
+			<p>
+				Uh oh! Something went wrong. Refresh and try again.
+				<span role="img" aria-label="Monkey covering eyes.">🙈</span>
+			</p>
+		);
+	} else if (Object.keys(vendors).length === 0) {
+		mainContent = <LoadingVendors />;
+	} else {
+		mainContent = Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
+			<Vendor
+				key={vendorId}
+				id={vendorId}
+				displayName={displayName}
+				logoThumb={logoThumb}
+				houses={houses}
+				sortMode={sortMode}
+				ascendingOrder={ascendingOrder}
+				handleHousePriceChange={handleHousePriceChange}
+				cancelEditPrice={cancelEditPrice}
+			/>
+		));
+	}
+
 	return (
 		<>
-			{hasError && <span>here is an error</span>}
 			<Menu
 				onChangeSortMode={onChangeSortMode}
 				onChangeAscendingOrder={onChangeAscendingOrder}
@@ -75,19 +102,7 @@ const HousesApp = () => {
 			/>
 
 			<main>
-				{Object.entries(vendors).map(([vendorId, { displayName, logoThumb, houses }]) => (
-					<Vendor
-						key={vendorId}
-						id={vendorId}
-						displayName={displayName}
-						logoThumb={logoThumb}
-						houses={houses}
-						sortMode={sortMode}
-						ascendingOrder={ascendingOrder}
-						handleHousePriceChange={handleHousePriceChange}
-						cancelEditPrice={cancelEditPrice}
-					/>
-				))}
+				{mainContent}
 			</main>
 		</>
 	);
