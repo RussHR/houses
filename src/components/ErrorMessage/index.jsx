@@ -3,7 +3,7 @@ import React from 'react';
 import './errormessage.css';
 
 /**
- * Simple loading message when initially starting the app.
+ * Appears if there's an error fetching the vendor data.
  */
 const ErrorMessage = () => (
 	<p className="errorMessage">
