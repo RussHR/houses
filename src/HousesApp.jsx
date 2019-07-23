@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatJsonForState } from './helpers/houses';
+import ErrorMessage from './components/ErrorMessage';
 import LoadingVendors from './components/LoadingVendors';
 import Menu from './components/Menu';
 import Vendor from './components/Vendor';
@@ -67,14 +68,8 @@ const HousesApp = () => {
 	};
 
 	let mainContent;
-
 	if (hasError) {
-		mainContent = (
-			<p>
-				Uh oh! Something went wrong. Refresh and try again.
-				<span role="img" aria-label="Monkey covering eyes.">🙈</span>
-			</p>
-		);
+		mainContent = <ErrorMessage />;
 	} else if (Object.keys(vendors).length === 0) {
 		mainContent = <LoadingVendors />;
 	} else {
