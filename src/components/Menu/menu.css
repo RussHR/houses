@@ -3,6 +3,8 @@
 .menu__wrapper {
 	height: var(--menu-height);
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	background-color: var(--menu-bg-color);
 	color: var(--menu-color);
